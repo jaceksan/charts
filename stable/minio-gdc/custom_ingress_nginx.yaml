@@ -1,0 +1,40 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/proxy-buffering: "off"
+    nginx.ingress.kubernetes.io/proxy-request-buffering: "off"
+  name: minio-clusters
+  namespace: minio
+spec:
+  rules:
+  - host: perf-dss-v03.minio.k8s.gooddata
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: minio-4node-200g-c01
+          servicePort: 9000
+  - host: perf-dss-v04.minio.k8s.gooddata
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: minio-4node-200g-c02
+            servicePort: 9000
+  - host: perf-dss-v05.minio.k8s.gooddata
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: minio-4node-200g-c01
+            servicePort: 9000
+  - host: perf-dss-v06.minio.k8s.gooddata
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: minio-4node-200g-c02
+            servicePort: 9000

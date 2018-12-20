@@ -1,0 +1,194 @@
+---
+# 8 volumes on 4 worker nodes
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: minio-local-worker01-pv1
+  labels:
+    app: minio
+spec:
+  capacity:
+    storage: 200Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /mnt/minio1
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - perf-k8s-worker01.int.na.prodgdc.com
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: minio-local-worker02-pv1
+  labels:
+    app: minio
+spec:
+  capacity:
+    storage: 200Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /mnt/minio1
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - perf-k8s-worker02.int.na.prodgdc.com
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: minio-local-worker03-pv1
+  labels:
+    app: minio
+spec:
+  capacity:
+    storage: 200Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /mnt/minio1
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - perf-k8s-worker03.int.na.prodgdc.com
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: minio-local-worker04-pv1
+  labels:
+    app: minio
+spec:
+  capacity:
+    storage: 200Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /mnt/minio1
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - perf-k8s-worker04.int.na.prodgdc.com
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: minio-local-worker05-pv1
+  labels:
+    app: minio
+spec:
+  capacity:
+    storage: 200Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /mnt/minio1
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - perf-k8s-worker05.int.na.prodgdc.com
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: minio-local-worker06-pv1
+  labels:
+    app: minio
+spec:
+  capacity:
+    storage: 200Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /mnt/minio1
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - perf-k8s-worker06.int.na.prodgdc.com
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: minio-local-worker07-pv1
+  labels:
+    app: minio
+spec:
+  capacity:
+    storage: 200Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /mnt/minio1
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - perf-k8s-worker07.int.na.prodgdc.com
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: minio-local-worker08-pv1
+  labels:
+    app: minio
+spec:
+  capacity:
+    storage: 200Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /mnt/minio1
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - perf-k8s-worker08.int.na.prodgdc.com
+---

@@ -1,0 +1,18 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/proxy-body-size: 0
+  name: my-minio-ingress-no-custom-nginx
+  namespace: minio
+spec:
+  rules:
+  - host: minio.k8s.gooddata
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: minio-cluster-1
+          servicePort: 9000
