@@ -27,4 +27,4 @@ kubectl delete pvc export-minio-4node-200g-c02-3 --namespace ${NAMESPACE}
 
 kubectl delete -f gdc-pv-perf.yaml --namespace ${NAMESPACE}
 
-clusterExec.py -m perf-k8s-worker{01..08} -- 'sudo rm -rf /mnt/minio1'
+clusterExec.py -m perf-k8s-worker{01..08} -- 'sudo time rm -rf /mnt/minio1'
