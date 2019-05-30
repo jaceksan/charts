@@ -2,7 +2,7 @@
 ##
 image:
   repository: harbor.intgdc.com/3rdparty/minio/minio
-  tag: RELEASE.2019-04-18T01-15-57Z
+  tag: RELEASE.2019-05-23T00-29-34Z
   pullPolicy: IfNotPresent
 
 ## Set default image, imageTag, and imagePullPolicy for the `mc` (the minio
@@ -10,7 +10,7 @@ image:
 ##
 mcImage:
   repository: harbor.intgdc.com/3rdparty/minio/mc
-  tag: RELEASE.2019-04-17T17-41-56Z
+  tag: RELEASE.2019-05-29T21-21-34Z
   pullPolicy: IfNotPresent
 
 ## minio server mode, i.e. standalone or distributed.
@@ -41,6 +41,7 @@ existingSecret: ""
 accessKey: "vertica_eon_k1234567"
 secretKey: "vertica_eon_k1234567_secret1234567890123"
 configPath: "/root/.minio/"
+configPathmc: "/root/.mc/"
 mountPath: "/data"
 replicas: 4
 
@@ -169,9 +170,21 @@ defaultBucket:
   ## Purge if bucket exists already
   purge: false
 
+## Create multiple buckets after minio install
+## Enabling `defaultBucket` will take priority over this list
+##
+buckets: []
+  # - name: bucket1
+  #   policy: none
+  #   purge: false
+  # - name: bucket2
+  #   policy: none
+  #   purge: false
+
 s3gateway:
   enabled: false
   replicas: 4
+  serviceEndpoint: ""
 
 ## Use minio as an azure blob gateway, you should disable data persistence so no volume claim are created.
 ## https://docs.minio.io/docs/minio-gateway-for-azure
@@ -191,6 +204,12 @@ gcsgateway:
   gcsKeyJson: ""
   # Google cloud project-id
   projectId: ""
+
+ossgateway:
+  enabled: false
+  # Number of parallel instances
+  replicas: 4
+  endpointURL: ""
 
 ## Use minio on NAS backend
 ## https://docs.minio.io/docs/minio-gateway-for-nas
