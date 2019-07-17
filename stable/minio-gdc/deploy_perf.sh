@@ -63,17 +63,17 @@ export SERVICE_PORT=9000
 helm install ../minio/ --name minio-cluster-1 --namespace ${NAMESPACE} -f gdc-values.yaml \
   --set service.type=ClusterIP --set service.port=${SERVICE_PORT} \
   --set ingress.enabled=true \
-  --set ingress.hosts="[perf-dss-v03.minio.k8s.gooddata,perf-dss-v04.minio.k8s.gooddata]"
+  --set ingress.hosts="[perf-dss-v03.minio.k8s.gooddata,perf-dss-v05.minio.k8s.gooddata]"
 
 # Upgrade
 helm upgrade minio-cluster-1 ../minio/ --namespace ${NAMESPACE} -f gdc-values.yaml \
   --set service.type=ClusterIP --set service.port=${SERVICE_PORT} \
   --set ingress.enabled=true \
-  --set ingress.hosts="[perf-dss-v03.minio.k8s.gooddata,perf-dss-v04.minio.k8s.gooddata]"
+  --set ingress.hosts="[perf-dss-v03.minio.k8s.gooddata,perf-dss-v05.minio.k8s.gooddata]"
 
 helm install ../minio/ --name minio-cluster-2 --namespace ${NAMESPACE} -f gdc-values.yaml \
   --set service.type=ClusterIP --set service.port=${SERVICE_PORT} \
-  --set ingress.enabled=true --set ingress.hosts="[perf-dss-v03.minio.k8s.gooddata,perf-dss-v04.minio.k8s.gooddata]"
+  --set ingress.enabled=true --set ingress.hosts="[perf-dss-v03.minio.k8s.gooddata,perf-dss-v05.minio.k8s.gooddata]"
 
 
 
