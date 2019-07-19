@@ -6,6 +6,12 @@ clusterExec.py -m perf-k8s-worker{01..08} -- 'sudo mkdir -p /mnt/minio1'
 
 ssh perf-k8s-master01
 
+sudo -i
+
+# if not yet prepared (mentioned in README)
+git clone git@github.com:jaceksan/charts.git
+cd charts/stable/minio-gdc
+
 export NAMESPACE=minio
 kubectl create --namespace ${NAMESPACE} -f gdc-pv-perf.yaml
 
